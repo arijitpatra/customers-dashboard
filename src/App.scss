@@ -1,0 +1,115 @@
+.record {
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  margin-bottom: 15px;
+  color: #313131; // TODO: use variables
+
+  &--layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div:nth-child(4) {
+      margin-top: 25px;
+    }
+  }
+}
+
+.active {
+  background: #d6edd6;
+}
+
+.inactive {
+  background: #eddbd6;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.sub-header {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  color: #5c49cb;
+
+  > h1 .react-icons {
+    font-size: 5.5rem;
+    margin-right: 15px;
+  }
+}
+
+.active-count {
+  font-size: 2.5rem;
+  color: #f9609f;
+  font-weight: bold;
+}
+
+.filterDiv {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: sticky;
+  top: 0;
+  background: #efefef;
+  padding: 25px 0;
+}
+
+.pill {
+  background: #e1dcff;
+  border-radius: 7px;
+  padding: 5px 7px;
+}
+
+.details-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.icon-button {
+  padding: 5px;
+  background: white;
+  border-radius: 7px;
+
+  &:hover {
+    box-shadow: 0px 0px 7px #d1d1d1;
+  }
+
+  &.delete {
+    background: #d91616;
+    color: white;
+  }
+}
+
+.fs-l {
+  font-size: 1.5rem;
+}
+
+.fs-xl {
+  font-size: 2rem;
+}
+
+.fs-xxl {
+  font-size: 2.5rem;
+}
