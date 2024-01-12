@@ -7,7 +7,7 @@ interface DataContextProps {
 
 interface DataContextValue {
   contextData: any;
-  updateContextData: (newData: string) => void;
+  updateContextData: (newData: any) => void;
 }
 
 const DataContext = createContext<DataContextValue | undefined>(undefined);

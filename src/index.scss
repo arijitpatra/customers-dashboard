@@ -24,6 +24,16 @@ select {
   font-size: 1rem;
 }
 
+input,
+textarea {
+  border-radius: 7px;
+  border: 1px solid #5c49cb;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
 button {
   padding: 10px;
   background: #5c49cb;

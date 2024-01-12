@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
-import x from "./customers.json";
 import {
   MdOutlineDiversity1,
   MdFilterAlt,
@@ -15,9 +14,9 @@ import {
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useContextData } from "./context/DataContext";
-import { filterByIndustry } from "./utils";
-
-console.log(x);
+import { deleteUser, filterByIndustry } from "./utils";
+import Pill from "./components/Pill";
+import Header from "./components/Header";
 
 const renderOption = (value: string) => <option value={value}>{value}</option>;
 
@@ -42,10 +41,15 @@ function App() {
   });
 
   useEffect(() => {
-    if (data && data.length > 0) {
+    if (
+      data &&
+      data.length > 0 &&
+      sessionStorage.getItem("isInitDone") === "no"
+    ) {
       updateContextData(data);
+      sessionStorage.setItem("isInitDone", "yes");
     }
-  }, [data, updateContextData]);
+  }, [data]);
 
   useEffect(() => {
     setLocalData(contextData.filter((item) => item.isActive === true));
@@ -63,23 +67,11 @@ function App() {
     setLocalData(filterByIndustry(industry, activity, contextData));
   }, [industry, activity, contextData]);
 
-  if (isPending) return "Loading...";
-
   if (error) return "An error has occurred: " + error.message;
 
   return (
     <>
-      <div className="sub-header">
-        <h1>
-          <MdOutlineDiversity1 className="react-icons" />
-          Customers Dashboard
-        </h1>
-        <div>
-          <Link to="create">
-            <button>Create new customer</button>
-          </Link>
-        </div>
-      </div>
+      <Header />
       <div className="filterDiv">
         <div>
           <MdFilterAlt className="react-icons" /> Activity:{" "}
@@ -113,6 +105,9 @@ function App() {
           {contextData.length} Customers
         </div>
       </div>
+      {isPending ? "Loading..." : null}
+      {localData.length === 0 && !isPending ? "No data" : null}
+      {error ? `An error has occurred: ${error.message}` : null}
       {localData?.map((customer) => {
         return (
           <Link to={`view/${customer.id}`} key={customer.id}>
@@ -130,10 +125,7 @@ function App() {
                     <MdArrowOutward className="react-icons" />
                   </div>
                   <div>
-                    <small className="pill">
-                      <MdAttachMoney />
-                      {customer.industry}
-                    </small>
+                    <Pill>{customer.industry}</Pill>
                   </div>
                   <div
                     role="button"
@@ -164,6 +156,20 @@ function App() {
                       className="react-icons icon-button delete fs-l"
                       title="delete"
                       aria-label="delete"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (
+                          confirm(
+                            `Are you sure you want to delete ${customer.company}?`
+                          ) == true
+                        ) {
+                          updateContextData(
+                            deleteUser(customer.id, contextData)
+                          );
+                        } else {
+                          console.log("You canceled!");
+                        }
+                      }}
                     />
                   ) : null}
                 </div>
