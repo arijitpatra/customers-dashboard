@@ -1,4 +1,16 @@
 :root {
+  --gray: #efefef;
+  --charcoal: #313131;
+  --primary: #5c49cb;
+  --primaryDark: #5241b4;
+  --secondary: #f9609f;
+  --tertiary: #e1dcff;
+  --white: #ffffff;
+  --lightGreen: #d6edd6;
+  --lightRed: #eddbd6;
+  --red: #d91616;
+  --shadow: #d1d1d1;
+
   font-family: "Nunito Sans", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -7,17 +19,17 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #efefef;
+  background-color: var(--gray);
   font-size: 16px;
 }
 
 body {
-  color: #313131;
+  color: var(--charcoal);
 }
 
 select {
   padding: 10px;
-  background: #e1dcff;
+  background: var(--tertiary);
   font-family: inherit;
   border: none;
   border-radius: 7px;
@@ -25,41 +37,41 @@ select {
 
   &:focus {
     border: none;
-    outline: 1px solid #f9609f;
+    outline: 1px solid var(--secondary);
   }
 }
 
 input,
 textarea {
   border-radius: 7px;
-  border: 1px solid #5c49cb;
+  border: 1px solid var(--primary);
   padding: 10px;
   font-family: inherit;
   font-size: 1rem;
 
   &:focus {
     border: none;
-    outline: 1px solid #f9609f;
+    outline: 1px solid var(--secondary);
   }
 }
 
 button {
   padding: 10px;
-  background: #5c49cb;
+  background: var(--primary);
   font-family: inherit;
   border: none;
   border-radius: 7px;
   font-size: 1rem;
-  color: white;
+  color: var(--white);
   cursor: pointer;
 
   &:hover {
-    background: #5241b4;
-    box-shadow: 0px 0px 7px #d1d1d1;
+    background: var(--primaryDark);
+    box-shadow: 0px 0px 7px var(--shadow);
   }
 }
 
 .react-icons {
   vertical-align: middle;
-  color: #f9609f;
+  color: var(--secondary);
 }

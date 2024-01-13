@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState, lazy } from "react";
 import "./App.scss";
 import {
   MdOutlineDiversity1,
@@ -16,6 +16,8 @@ import { useContextData } from "./context/DataContext";
 import { deleteUser, filterByIndustry } from "./utils";
 import Pill from "./components/Pill";
 import Header from "./components/Header";
+
+const Count = lazy(() => import("./components/Count"));
 
 const renderOption = (value: string) => <option value={value}>{value}</option>;
 
@@ -110,13 +112,23 @@ function App() {
             {renderOption("finance")}
           </select>
         </div>
-        <div>
+        {/* <div>
           <span className="active-count">{localData.length}</span> /{" "}
           {contextData.length} Customers
-        </div>
+        </div> */}
+        <Suspense fallback="Counting...">
+          {contextData.length > 0 && localData.length > 0 && (
+            <Count
+              filteredCount={localData.length}
+              totalCount={contextData.length}
+            />
+          )}
+        </Suspense>
       </div>
       {isPending ? "Loading..." : null}
-      {localData.length === 0 && !isPending ? "No data" : null}
+      {localData.length === 0 && !isPending
+        ? "No data matches the filters..."
+        : null}
       {error ? `An error has occurred: ${error.message}` : null}
       {localData?.map((customer) => {
         return (

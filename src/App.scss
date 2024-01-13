@@ -3,7 +3,7 @@
   border-radius: 10px;
   background: white;
   margin-bottom: 15px;
-  color: #313131; // TODO: use variables
+  color: var(--charcoal);
 
   &--layout {
     display: flex;
@@ -18,7 +18,7 @@
       font-size: 1.5rem;
       &:hover {
         text-decoration: underline;
-        text-decoration-color: #f9609f;
+        text-decoration-color: var(--secondary);
         .react-icons {
           transform: scale(1.5);
         }
@@ -28,11 +28,11 @@
 }
 
 .active {
-  background: #d6edd6;
+  background: var(--lightGreen);
 }
 
 .inactive {
-  background: #eddbd6;
+  background: var(--lightRed);
 }
 
 .sub-header {
@@ -41,7 +41,7 @@
   align-items: center;
 
   h1 {
-    color: #5c49cb;
+    color: var(--primary);
   }
 
   > h1 .react-icons {
@@ -50,19 +50,13 @@
   }
 }
 
-.active-count {
-  font-size: 2.5rem;
-  color: #f9609f;
-  font-weight: bold;
-}
-
 .filterDiv {
   display: flex;
   align-items: center;
   gap: 25px;
   position: sticky;
   top: 0;
-  background: #efefef;
+  background: var(--gray);
   padding: 25px 0;
 }
 
@@ -74,16 +68,16 @@
 
 .icon-button {
   padding: 5px;
-  background: white;
+  background: var(--white);
   border-radius: 7px;
 
   &:hover {
-    box-shadow: 0px 0px 7px #d1d1d1;
+    box-shadow: 0px 0px 7px var(--shadow);
   }
 
   &.delete {
-    background: #d91616;
-    color: white;
+    background: var(--red);
+    color: var(--white);
   }
 }
 

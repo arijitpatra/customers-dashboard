@@ -17,7 +17,7 @@ import Pill from "../../components/Pill";
 import { MdArrowBack } from "react-icons/md";
 import { dateTimeFormatter } from "../../utils";
 
-const Edit = () => {
+const View = () => {
   const { contextData } = useContextData();
   const navigate = useNavigate();
   let { customerId } = useParams();
@@ -101,4 +101,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default View;
