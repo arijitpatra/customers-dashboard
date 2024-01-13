@@ -1,10 +1,6 @@
 .view {
-  h2 {
-    display: flex;
-    align-items: center;
-    .react-icons {
-      font-size: 2.5rem;
-    }
+  h1 {
+    color: #5c49cb;
   }
   td {
     padding: 10px 5px;
@@ -15,10 +11,12 @@
 
   .projects {
     margin: 35px 5px 0 5px;
+    background: #e1dcff;
 
     .title {
-      background: yellow;
-      padding: 5px;
+      background: #5c49cb;
+      color: white;
+      padding: 10px;
       font-weight: 600;
       margin-bottom: 15px;
     }

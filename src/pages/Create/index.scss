@@ -1,9 +1,20 @@
 .create {
+  h1 {
+    color: #5c49cb;
+  }
   table {
-    text-align: right;
+    width: 100%;
 
     td {
-      padding: 10px;
+      padding: 10px 0;
+    }
+
+    .label {
+      width: 10%;
+    }
+
+    .field {
+      display: grid;
     }
   }
 }

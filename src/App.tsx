@@ -5,7 +5,6 @@ import {
   MdFilterAlt,
   MdEdit,
   MdDelete,
-  MdAttachMoney,
   MdArrowDropUp,
   MdArrowDropDown,
   MdArrowOutward,
@@ -72,6 +71,17 @@ function App() {
   return (
     <>
       <Header />
+      <div className="sub-header">
+        <h1>
+          <MdOutlineDiversity1 className="react-icons" />
+          Customers Dashboard
+        </h1>
+        <div>
+          <Link to="create">
+            <button>Create new customer</button>
+          </Link>
+        </div>
+      </div>
       <div className="filterDiv">
         <div>
           <MdFilterAlt className="react-icons" /> Activity:{" "}
@@ -120,7 +130,7 @@ function App() {
                   <div>
                     <MdBusinessCenter className="react-icons fs-xl" />
                   </div>
-                  <div style={{ fontSize: "1.5rem" }}>
+                  <div className="company">
                     {customer.company}
                     <MdArrowOutward className="react-icons" />
                   </div>

@@ -13,6 +13,17 @@
     div:nth-child(4) {
       margin-top: 25px;
     }
+
+    .company {
+      font-size: 1.5rem;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: #f9609f;
+        .react-icons {
+          transform: scale(1.5);
+        }
+      }
+    }
   }
 }
 
@@ -24,34 +35,14 @@
   background: #eddbd6;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 .sub-header {
   justify-content: space-between;
   display: flex;
   align-items: center;
-  color: #5c49cb;
+
+  h1 {
+    color: #5c49cb;
+  }
 
   > h1 .react-icons {
     font-size: 5.5rem;

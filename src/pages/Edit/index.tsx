@@ -3,7 +3,8 @@ import { Formik, Field, Form } from "formik";
 import Header from "../../components/Header";
 import { INDUSTRIES } from "../../constants";
 import { useContextData } from "../../context/DataContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { MdArrowBack } from "react-icons/md";
 
 const generateOptions = (list: string[]) =>
   list.map((item) => {
@@ -28,9 +29,15 @@ const Edit = () => {
   return (
     <div className="edit">
       <Header />
+      <h1>
+        <Link to="/">
+          <MdArrowBack className="react-icons" />
+        </Link>
+        Edit
+      </h1>
       <Formik
         initialValues={{
-          id: customerData.id,
+          //   id: customerData.id,
           company: customerData.company,
           about: customerData.about,
           industry: customerData.industry,
@@ -54,53 +61,53 @@ const Edit = () => {
       >
         <Form>
           <table>
-            <tr>
-              <td>
+            {/* <tr>
+              <td className="label">
                 <label htmlFor="id">ID</label>
               </td>
-              <td>
+              <td className="field">
                 <Field id="id" name="id" disabled />
               </td>
-            </tr>
+            </tr> */}
             <tr>
-              <td>
+              <td className="label">
                 <label htmlFor="company">Company</label>
               </td>
-              <td>
+              <td className="field">
                 <Field id="company" name="company" />
               </td>
             </tr>
             <tr>
-              <td>
+              <td className="label">
                 <label htmlFor="about">About</label>
               </td>
-              <td>
+              <td className="field">
                 <Field id="about" name="about" as="textarea" />
               </td>
             </tr>
             <tr>
-              <td>
+              <td className="label">
                 <label htmlFor="industry">Industry</label>
               </td>
-              <td>
+              <td className="field">
                 <Field id="industry" name="industry" as="select">
                   {generateOptions(INDUSTRIES)}
                 </Field>
               </td>
             </tr>
             <tr>
-              <td>
+              <td className="label">
                 <label htmlFor="isActive">Is active</label>
               </td>
-              <td>
+              <td className="field">
                 <Field id="isActive" name="isActive" as="select">
                   {generateOptions(["yes", "no"])}
                 </Field>
               </td>
             </tr>
             <td></td>
-            <td>
-              <button type="submit">Submit</button>
+            <td className="field">
+              <button type="submit">Update</button>
             </td>
           </table>
 

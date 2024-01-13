@@ -22,6 +22,11 @@ select {
   border: none;
   border-radius: 7px;
   font-size: 1rem;
+
+  &:focus {
+    border: none;
+    outline: 1px solid #f9609f;
+  }
 }
 
 input,
@@ -31,7 +36,11 @@ textarea {
   padding: 10px;
   font-family: inherit;
   font-size: 1rem;
-  margin-left: 10px;
+
+  &:focus {
+    border: none;
+    outline: 1px solid #f9609f;
+  }
 }
 
 button {

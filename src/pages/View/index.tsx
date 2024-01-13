@@ -15,6 +15,7 @@ import { useContextData } from "../../context/DataContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Pill from "../../components/Pill";
 import { MdArrowBack } from "react-icons/md";
+import { dateTimeFormatter } from "../../utils";
 
 const Edit = () => {
   const { contextData } = useContextData();
@@ -30,12 +31,12 @@ const Edit = () => {
   return (
     <div className="view">
       <Header />
-      <h2>
+      <h1>
         <Link to="/">
           <MdArrowBack className="react-icons" />
         </Link>
         {customerData.company}
-      </h2>
+      </h1>
       <table>
         <tr>
           <td>
@@ -84,11 +85,11 @@ const Edit = () => {
               <tbody>
                 {customerData.projects.map((project) => (
                   <tr key={project.id}>
-                    <td>{project.id}</td>
-                    <td>{project.name}</td>
-                    <td>{project.contact}</td>
-                    <td>{project.start_date}</td>
-                    <td>{project.end_date}</td>
+                    <td>{project.id || "---"}</td>
+                    <td>{project.name || "---"}</td>
+                    <td>{project.contact || "---"}</td>
+                    <td>{dateTimeFormatter(project.start_date) || "---"}</td>
+                    <td>{dateTimeFormatter(project.end_date) || "---"}</td>
                   </tr>
                 ))}
               </tbody>
