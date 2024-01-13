@@ -10,15 +10,19 @@
   }
 
   .projects {
-    margin: 35px 5px 0 5px;
-    background: #e1dcff;
+    margin: 25px 5px 0 5px;
+    background: var(--tertiary);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
 
     .title {
-      background: #5c49cb;
+      background: var(--secondary);
       color: white;
       padding: 10px;
       font-weight: 600;
       margin-bottom: 15px;
+      border-radius: 7px;
     }
 
     table {
