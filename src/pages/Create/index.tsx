@@ -8,7 +8,11 @@ import { MdArrowBack } from "react-icons/md";
 
 const generateOptions = (list: string[]) =>
   list.map((item) => {
-    return <option value={item}>{item}</option>;
+    return (
+      <option value={item} key={item}>
+        {item}
+      </option>
+    );
   });
 
 const Create = () => {
@@ -50,56 +54,58 @@ const Create = () => {
       >
         <Form>
           <table>
-            <tr>
-              <td className="label">
-                <label htmlFor="id">ID</label>
-              </td>
-              <td className="field">
-                <Field id="id" name="id" placeholder="12345" />
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="company">Company</label>
-              </td>
-              <td className="field">
-                <Field id="company" name="company" placeholder="Acme Co." />
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="about">About</label>
-              </td>
-              <td className="field">
-                <Field id="about" name="about" as="textarea" />
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="industry">Industry</label>
-              </td>
-              <td className="field">
-                <Field id="industry" name="industry" as="select">
-                  {generateOptions(INDUSTRIES)}
-                </Field>
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="isActive">Is active</label>
-              </td>
-              <td className="field">
-                <Field id="isActive" name="isActive" as="select">
-                  {generateOptions(["yes", "no"])}
-                </Field>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td className="field">
-                <button type="submit">Submit</button>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className="label">
+                  <label htmlFor="id">ID</label>
+                </td>
+                <td className="field">
+                  <Field id="id" name="id" placeholder="12345" />
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="company">Company</label>
+                </td>
+                <td className="field">
+                  <Field id="company" name="company" placeholder="Acme Co." />
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="about">About</label>
+                </td>
+                <td className="field">
+                  <Field id="about" name="about" as="textarea" />
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="industry">Industry</label>
+                </td>
+                <td className="field">
+                  <Field id="industry" name="industry" as="select">
+                    {generateOptions(INDUSTRIES)}
+                  </Field>
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="isActive">Is active</label>
+                </td>
+                <td className="field">
+                  <Field id="isActive" name="isActive" as="select">
+                    {generateOptions(["yes", "no"])}
+                  </Field>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td className="field">
+                  <button type="submit">Submit</button>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </Form>
       </Formik>

@@ -1,14 +1,3 @@
-// import Header from "../../components/Header";
-
-// const View = () => (
-//   <>
-//     <Header />
-//     <div>Details</div>
-//   </>
-// );
-
-// export default View;
-
 import "./index.scss";
 import Header from "../../components/Header";
 import { useContextData } from "../../context/DataContext";
@@ -38,32 +27,34 @@ const View = () => {
         {customerData.company}
       </h1>
       <table>
-        <tr>
-          <td>
-            <label htmlFor="id">ID</label>
-          </td>
-          <td>{customerData.id}</td>
-        </tr>
-        <tr>
-          <td>
-            <label htmlFor="about">About</label>
-          </td>
-          <td>{customerData.about}</td>
-        </tr>
-        <tr>
-          <td>
-            <label htmlFor="industry">Industry</label>
-          </td>
-          <td>
-            <Pill>{customerData.industry}</Pill>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label htmlFor="isActive">Is active</label>
-          </td>
-          <td>{customerData.isActive ? "Yes" : "No"}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <label htmlFor="id">ID</label>
+            </td>
+            <td>{customerData.id}</td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="about">About</label>
+            </td>
+            <td>{customerData.about}</td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="industry">Industry</label>
+            </td>
+            <td>
+              <Pill>{customerData.industry}</Pill>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label htmlFor="isActive">Is active</label>
+            </td>
+            <td>{customerData.isActive ? "Yes" : "No"}</td>
+          </tr>
+        </tbody>
       </table>
 
       <div className="projects">

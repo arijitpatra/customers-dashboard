@@ -1,12 +1,12 @@
 import { ReactElement } from "react";
-import "./index.scss";
+import styles from "./Pill.module.scss";
 
 interface PillProps {
   children: ReactElement;
 }
 
 const Pill = ({ children }: PillProps) => (
-  <span className="pill">{children}</span>
+  <span className={`${styles.pill}`}>{children}</span>
 );
 
 export default Pill;

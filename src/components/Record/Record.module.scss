@@ -1,0 +1,44 @@
+.record {
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  margin-bottom: 15px;
+  color: var(--charcoal);
+
+  .recordLayout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .toggleButton {
+      margin-top: 25px;
+      cursor: pointer;
+    }
+
+    .company {
+      font-size: 1.5rem;
+      color: var(--primary);
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--secondary);
+        svg {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+
+  .detailsRow {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.active {
+  background: var(--lightGreen);
+}
+
+.inactive {
+  background: var(--lightRed);
+}

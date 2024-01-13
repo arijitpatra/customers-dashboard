@@ -1,0 +1,14 @@
+.subHeader {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    color: var(--primary);
+
+    svg {
+      font-size: 5.5rem;
+      margin-right: 15px;
+    }
+  }
+}
