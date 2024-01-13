@@ -20,7 +20,6 @@ const Edit = () => {
   const navigate = useNavigate();
   const { customerId } = useParams();
   const customerData = contextData.filter((item) => item.id === customerId)[0];
-  console.log(customerData);
 
   if (customerData?.length === 0) {
     return "Loading...";
@@ -61,57 +60,51 @@ const Edit = () => {
       >
         <Form>
           <table>
-            {/* <tr>
-              <td className="label">
-                <label htmlFor="id">ID</label>
-              </td>
-              <td className="field">
-                <Field id="id" name="id" disabled />
-              </td>
-            </tr> */}
-            <tr>
-              <td className="label">
-                <label htmlFor="company">Company</label>
-              </td>
-              <td className="field">
-                <Field id="company" name="company" />
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="about">About</label>
-              </td>
-              <td className="field">
-                <Field id="about" name="about" as="textarea" />
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="industry">Industry</label>
-              </td>
-              <td className="field">
-                <Field id="industry" name="industry" as="select">
-                  {generateOptions(INDUSTRIES)}
-                </Field>
-              </td>
-            </tr>
-            <tr>
-              <td className="label">
-                <label htmlFor="isActive">Is active</label>
-              </td>
-              <td className="field">
-                <Field id="isActive" name="isActive" as="select">
-                  {generateOptions(["yes", "no"])}
-                </Field>
-              </td>
-            </tr>
-            <td></td>
-            <td className="field">
-              <button type="submit">Update</button>
-            </td>
+            <tbody>
+              <tr>
+                <td className="label">
+                  <label htmlFor="company">Company</label>
+                </td>
+                <td className="field">
+                  <Field id="company" name="company" />
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="about">About</label>
+                </td>
+                <td className="field">
+                  <Field id="about" name="about" as="textarea" />
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="industry">Industry</label>
+                </td>
+                <td className="field">
+                  <Field id="industry" name="industry" as="select">
+                    {generateOptions(INDUSTRIES)}
+                  </Field>
+                </td>
+              </tr>
+              <tr>
+                <td className="label">
+                  <label htmlFor="isActive">Is active</label>
+                </td>
+                <td className="field">
+                  <Field id="isActive" name="isActive" as="select">
+                    {generateOptions(["yes", "no"])}
+                  </Field>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td className="field">
+                  <button type="submit">Update</button>
+                </td>
+              </tr>
+            </tbody>
           </table>
-
-          <div></div>
         </Form>
       </Formik>
     </div>
