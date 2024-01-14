@@ -1,24 +1,28 @@
-import "./index.scss";
+import styles from "./View.module.scss";
 import Header from "../../components/Header";
 import { useContextData } from "../../context/DataContext";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Pill from "../../components/Pill";
 import { MdArrowBack } from "react-icons/md";
 import { dateTimeFormatter } from "../../utils";
+import NoDataError from "../../components/NoDataError";
+import Loading from "../../components/Loading";
 
 const View = () => {
   const { contextData } = useContextData();
-  const navigate = useNavigate();
-  let { customerId } = useParams();
+  const { customerId } = useParams();
   const customerData = contextData.filter((item) => item.id === customerId)[0];
-  console.log(customerData);
 
   if (customerData?.length === 0) {
-    return "Loading...";
+    return <Loading />;
+  }
+
+  if (contextData.length === 0) {
+    return <NoDataError />;
   }
 
   return (
-    <div className="view">
+    <div className={`${styles.view}`}>
       <Header />
       <h1>
         <Link to="/">
@@ -30,19 +34,19 @@ const View = () => {
         <tbody>
           <tr>
             <td>
-              <label htmlFor="id">ID</label>
+              <label>ID</label>
             </td>
             <td>{customerData.id}</td>
           </tr>
           <tr>
             <td>
-              <label htmlFor="about">About</label>
+              <label>About</label>
             </td>
             <td>{customerData.about}</td>
           </tr>
           <tr>
             <td>
-              <label htmlFor="industry">Industry</label>
+              <label>Industry</label>
             </td>
             <td>
               <Pill>{customerData.industry}</Pill>
@@ -50,15 +54,15 @@ const View = () => {
           </tr>
           <tr>
             <td>
-              <label htmlFor="isActive">Is active</label>
+              <label>Is active</label>
             </td>
             <td>{customerData.isActive ? "Yes" : "No"}</td>
           </tr>
         </tbody>
       </table>
 
-      <div className="projects">
-        <div className="title">Projects</div>
+      <div className={`${styles.projects}`}>
+        <div className={`${styles.title}`}>Projects</div>
         <div>
           {customerData.projects.length === 0 ? (
             "No projects!"

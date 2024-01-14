@@ -1,8 +1,8 @@
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 import styles from "./Pill.module.scss";
 
 interface PillProps {
-  children: ReactElement;
+  children: ReactNode;
 }
 
 const Pill = ({ children }: PillProps) => (

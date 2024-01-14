@@ -1,3 +1,4 @@
+// fn takes dateTime string and returns in the format: Oct 5, 2021, 9:33 AM
 export const dateTimeFormatter = (dateTime: string) => {
   const dateObject = new Date(dateTime);
 
@@ -7,7 +8,6 @@ export const dateTimeFormatter = (dateTime: string) => {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    second: "numeric",
   };
 
   return dateObject.toLocaleString("en-US", options);

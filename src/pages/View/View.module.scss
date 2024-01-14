@@ -1,6 +1,6 @@
 .view {
   h1 {
-    color: #5c49cb;
+    color: var(--primary);
   }
   td {
     padding: 10px 5px;
@@ -18,7 +18,7 @@
 
     .title {
       background: var(--secondary);
-      color: white;
+      color: var(--white);
       padding: 10px;
       font-weight: 600;
       margin-bottom: 15px;

@@ -1,10 +1,5 @@
 import { MdFilterAlt } from "react-icons/md";
-
-const renderOption = (value: string) => (
-  <option value={value} key={value}>
-    {value}
-  </option>
-);
+import { generateOptions } from "../../utils";
 
 interface FilterProps {
   label: string;
@@ -18,9 +13,7 @@ const Filter = ({ label, options, value, onFilterChange }: FilterProps) => {
     <div>
       <MdFilterAlt className="react-icons" /> {label}:{" "}
       <select onChange={onFilterChange} value={value}>
-        {options.map((option: string) => {
-          return renderOption(option);
-        })}
+        {generateOptions(options)}
       </select>
     </div>
   );

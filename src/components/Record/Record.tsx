@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "./Record.module.scss";
 import {
   MdArrowDropDown,
@@ -11,11 +10,12 @@ import {
 import Pill from "../Pill";
 import { Link } from "react-router-dom";
 import { useContextData } from "../../context/DataContext";
-import { deleteUser } from "../../utils";
+import { deleteCustomer } from "../../utils";
 import { useState } from "react";
+import { CompanyData } from "../../types/index.ts";
 
 interface RecordProps {
-  data: any;
+  data: CompanyData;
 }
 
 const Record = ({ data }: RecordProps) => {
@@ -72,14 +72,14 @@ const Record = ({ data }: RecordProps) => {
               className="react-icons icon-button delete fs-l"
               title="delete"
               aria-label="delete"
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent) => {
                 e.preventDefault();
                 if (
                   confirm(
                     `Are you sure you want to delete ${data.company}?`
                   ) === true
                 ) {
-                  updateContextData(deleteUser(data.id, contextData));
+                  updateContextData(deleteCustomer(data.id, contextData));
                 }
               }}
             />

@@ -9,7 +9,7 @@
   --lightGreen: #d6edd6;
   --lightRed: #eddbd6;
   --red: #d91616;
-  --shadow: #d1d1d1;
+  --shadow: #c1c1c1;
 
   font-family: "Nunito Sans", sans-serif;
   font-synthesis: none;
@@ -71,6 +71,22 @@ button {
   }
 }
 
+.icon-button {
+  padding: 5px;
+  background: var(--white);
+  border-radius: 7px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 0px 7px var(--shadow);
+  }
+
+  &.delete {
+    background: var(--red);
+    color: var(--white);
+  }
+}
+
 .fs-l {
   font-size: 1.5rem;
 }
@@ -83,7 +99,19 @@ button {
   font-size: 2.5rem;
 }
 
+.label {
+  width: 10%;
+}
+
+.field {
+  display: grid;
+}
+
 .react-icons {
   vertical-align: middle;
   color: var(--secondary);
+}
+
+.border-none {
+  border: none;
 }

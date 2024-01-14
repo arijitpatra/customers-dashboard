@@ -1,21 +1,22 @@
+import styles from "./Home.module.scss";
 import { Suspense, useEffect, useState, lazy } from "react";
-import "./App.scss";
 import { useQuery } from "@tanstack/react-query";
-import { useContextData } from "./context/DataContext";
-import { filterByIndustry } from "./utils";
-import Header from "./components/Header";
-import Filter from "./components/Filter";
+import { useContextData } from "../../context/DataContext";
+import { filterByIndustry } from "../../utils";
+import Header from "../../components/Header";
+import Filter from "../../components/Filter";
 import {
   ACTIVITY_FILTER_OPTIONS,
   CUSTOMERS_API_ENDPOINT,
   INDUSTRIES_FILTER_OPTIONS,
-} from "./constants";
-import SubHeader from "./components/SubHeader";
-import Record from "./components/Record";
+} from "../../constants";
+import SubHeader from "../../components/SubHeader";
+import Record from "../../components/Record";
+import Loading from "../../components/Loading";
 
-const Count = lazy(() => import("./components/Count"));
+const Count = lazy(() => import("../../components/Count"));
 
-const App = () => {
+const Home = () => {
   const { contextData, updateContextData } = useContextData();
   const [localData, setLocalData] = useState(contextData);
   const [activity, setActivity] = useState("active");
@@ -37,6 +38,7 @@ const App = () => {
       updateContextData(data);
       sessionStorage.setItem("isInitDone", "yes");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
@@ -55,13 +57,11 @@ const App = () => {
     setLocalData(filterByIndustry(industry, activity, contextData));
   }, [industry, activity, contextData]);
 
-  if (error) return "An error has occurred: " + error.message;
-
   return (
     <>
       <Header />
       <SubHeader />
-      <div className="filter-row">
+      <div className={`${styles.filterRow}`}>
         <Filter
           label="Activity"
           options={ACTIVITY_FILTER_OPTIONS}
@@ -83,11 +83,15 @@ const App = () => {
           )}
         </Suspense>
       </div>
-      {isPending ? "Loading..." : null}
+
+      {isPending ? <Loading /> : null}
+
       {localData.length === 0 && !isPending
         ? "No data matches the filters..."
         : null}
+
       {error ? `An error has occurred: ${error.message}` : null}
+
       {localData?.map((customer) => {
         return <Record key={customer.id} data={customer} />;
       })}
@@ -95,4 +99,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

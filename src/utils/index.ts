@@ -1,3 +1,4 @@
 export * from "./filterByIndustry";
-export * from "./deleteUser";
+export * from "./deleteCustomer";
 export * from "./dateTimeFormatter";
+export * from "./generateOptions";
