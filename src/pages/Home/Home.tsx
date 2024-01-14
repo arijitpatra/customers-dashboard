@@ -1,5 +1,5 @@
 import styles from "./Home.module.scss";
-import { Suspense, useEffect, useState, lazy } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useContextData } from "../../context/DataContext";
 import { filterByIndustry } from "../../utils";
@@ -13,8 +13,7 @@ import {
 import SubHeader from "../../components/SubHeader";
 import Record from "../../components/Record";
 import Loading from "../../components/Loading";
-
-const Count = lazy(() => import("../../components/Count"));
+import Count from "../../components/Count";
 
 const Home = () => {
   const { contextData, updateContextData } = useContextData();
@@ -74,19 +73,17 @@ const Home = () => {
           value={industry}
           onFilterChange={(e) => setIndustry(e.target.value)}
         />
-        <Suspense fallback="Counting...">
-          {contextData.length > 0 && localData.length > 0 && (
-            <Count
-              filteredCount={localData.length}
-              totalCount={contextData.length}
-            />
-          )}
-        </Suspense>
+        <Count
+          filteredCount={localData.length}
+          totalCount={contextData.length}
+        />
       </div>
 
       {isPending ? <Loading /> : null}
 
-      {localData.length === 0 && !isPending
+      {localData.length === 0 &&
+      !isPending &&
+      localStorage.getItem("isInitDone") === "yes"
         ? "No data matches the filters..."
         : null}
 

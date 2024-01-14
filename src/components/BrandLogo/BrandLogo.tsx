@@ -1,7 +1,7 @@
 const BrandLogo = () => (
   <img
-    width="100"
-    height="auto"
+    width="100px"
+    height="26px"
     loading="lazy"
     src="/logo.svg"
     alt="brand-logo"
