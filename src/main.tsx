@@ -15,7 +15,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <DataProvider>
       <QueryClientProvider client={queryClient}>
-        {/* <Skeleton /> */}
         <Suspense fallback={<Skeleton />}>
           <RouterProvider router={router} />
         </Suspense>

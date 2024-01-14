@@ -1,22 +1,23 @@
+import { ACTIVE, ALL } from "../constants/index.ts";
 import { CompanyData } from "../types/index.ts";
 
-// fn returns list of customers based on the industry, also considers if it is active or inactive
-export const filterByIndustry = (
+// fn returns list of customers based on the industry and activity
+export const filterByIndustryAndActivity = (
   industry: string,
   activity: string,
   data: CompanyData[]
 ) => {
-  const activityToBoolean = activity === "active" ? true : false;
+  const activityToBoolean = activity === ACTIVE ? true : false;
 
-  if (activity === "all" && industry === "all") {
+  if (activity === ALL && industry === ALL) {
     return data;
   }
 
-  if (activity === "all" && industry !== "all") {
+  if (activity === ALL && industry !== ALL) {
     return data.filter((item) => item.industry === industry);
   }
 
-  if (activity !== "all" && industry === "all") {
+  if (activity !== ALL && industry === ALL) {
     return data.filter((item) => item.isActive === activityToBoolean);
   }
 

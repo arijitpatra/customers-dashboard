@@ -1,3 +1,4 @@
+import styles from "./Filter.module.scss";
 import { MdFilterAlt } from "react-icons/md";
 import { generateOptions } from "../../utils";
 
@@ -10,9 +11,10 @@ interface FilterProps {
 
 const Filter = ({ label, options, value, onFilterChange }: FilterProps) => {
   return (
-    <div>
-      <MdFilterAlt className="react-icons" /> {label}:{" "}
-      <select onChange={onFilterChange} value={value}>
+    <div className={`${styles.filter}`}>
+      <MdFilterAlt className="react-icons" />
+      <label htmlFor={label}>{label}: </label>
+      <select id={label} onChange={onFilterChange} value={value}>
         {generateOptions(options)}
       </select>
     </div>

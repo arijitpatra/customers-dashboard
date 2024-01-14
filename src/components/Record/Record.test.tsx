@@ -6,11 +6,11 @@ import { DataProvider } from "../../context/DataContext";
 
 const mockData = {
   id: "123",
-  isActive: true,
-  company: "Test Company",
-  industry: "Test Industry",
+  isActive: false,
+  company: "Test",
+  industry: "tech",
   projects: [],
-  about: "Test about",
+  about: "my fake bio",
 };
 
 beforeEach(() => {
@@ -23,28 +23,22 @@ beforeEach(() => {
   );
 });
 
-describe("Record Component", () => {
-  test("renders correctly with given data", () => {
-    // Check if the company name is rendered
-    expect(screen.getByText("Test Company")).toBeInTheDocument();
-
-    // Check if the industry pill is rendered
-    expect(screen.getByText("Test Industry")).toBeInTheDocument();
-
-    // Check if the edit link is present
+describe("Unit tests for Record:", () => {
+  test("renders correctly with given data:", () => {
+    expect(screen.getByText("Test")).toBeInTheDocument();
+    expect(screen.getByText("tech")).toBeInTheDocument();
+    expect(screen.getByText("more")).toBeInTheDocument();
     expect(screen.getByLabelText("edit")).toBeInTheDocument();
+    expect(screen.getByLabelText("delete")).toBeInTheDocument();
   });
 
-  test('toggles details visibility when "more" button is clicked', () => {
-    // Check if details are initially hidden
+  test("toggles properly on more/less click:", () => {
     expect(screen.queryByText("ID")).not.toBeInTheDocument();
 
-    // Click the "more" button
     fireEvent.click(screen.getByText("more"));
-
-    // Check if details become visible
     expect(screen.getByText("ID")).toBeInTheDocument();
-  });
 
-  // Add more test cases as needed
+    fireEvent.click(screen.getByText("less"));
+    expect(screen.queryByText("ID")).toBeFalsy();
+  });
 });

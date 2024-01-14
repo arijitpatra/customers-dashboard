@@ -1,7 +1,7 @@
 import styles from "./Create.module.scss";
 import { Formik, Field, Form } from "formik";
 import Header from "../../components/Header";
-import { INDUSTRIES } from "../../constants";
+import { INDUSTRIES, NO, TECH, YES } from "../../constants";
 import { useContextData } from "../../context/DataContext";
 import { Link, useNavigate } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
@@ -26,8 +26,8 @@ const Create = () => {
           id: uuidv4(),
           company: "",
           about: "",
-          industry: "tech",
-          isActive: "yes",
+          industry: TECH,
+          isActive: YES,
         }}
         onSubmit={(values) => {
           updateContextData([
@@ -37,7 +37,7 @@ const Create = () => {
               company: values.company,
               about: values.about,
               industry: values.industry,
-              isActive: values.isActive === "yes" ? true : false,
+              isActive: values.isActive === YES ? true : false,
               projects: [],
             },
           ]);
@@ -92,7 +92,7 @@ const Create = () => {
                 </td>
                 <td className="field">
                   <Field id="isActive" name="isActive" as="select">
-                    {generateOptions(["yes", "no"])}
+                    {generateOptions([YES, NO])}
                   </Field>
                 </td>
               </tr>

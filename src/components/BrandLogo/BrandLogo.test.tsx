@@ -1,15 +1,10 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import Header from "./Header";
-import { MemoryRouter } from "react-router-dom";
+import BrandLogo from "./BrandLogo";
 
-describe("Unit tests for Header: ", () => {
-  test("renders the brand logo in header correctly:", () => {
-    const { getByAltText } = render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
+describe("Unit tests for BrandLogo: ", () => {
+  test("renders the brand logo correctly:", () => {
+    const { getByAltText } = render(<BrandLogo />);
     const image = getByAltText("brand-logo");
 
     expect(image).toHaveAttribute("src", "/logo.svg");

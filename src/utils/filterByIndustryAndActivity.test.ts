@@ -1,7 +1,7 @@
-import { filterByIndustry } from "./filterByIndustry";
+import { filterByIndustryAndActivity } from "./filterByIndustryAndActivity";
 
-describe("Unit test for filterByIndustry util fn:", () => {
-  test("filters correctly by industry also keeping in mind the activity:", () => {
+describe("Unit test for filterByIndustryAndActivity util fn:", () => {
+  test("filters correctly by industry and activity:", () => {
     const testData = [
       {
         industry: "tech",
@@ -45,7 +45,7 @@ describe("Unit test for filterByIndustry util fn:", () => {
       },
     ];
 
-    expect(filterByIndustry("tech", "active", testData)).toEqual([
+    expect(filterByIndustryAndActivity("tech", "active", testData)).toEqual([
       {
         industry: "tech",
         isActive: true,
@@ -63,7 +63,7 @@ describe("Unit test for filterByIndustry util fn:", () => {
         projects: [],
       },
     ]);
-    expect(filterByIndustry("tech", "inactive", testData)).toEqual([
+    expect(filterByIndustryAndActivity("tech", "inactive", testData)).toEqual([
       {
         industry: "tech",
         isActive: false,
@@ -73,7 +73,9 @@ describe("Unit test for filterByIndustry util fn:", () => {
         projects: [],
       },
     ]);
-    expect(filterByIndustry("tech", "inactive", testData)).not.toEqual([
+    expect(
+      filterByIndustryAndActivity("tech", "inactive", testData)
+    ).not.toEqual([
       {
         industry: "tech",
         isActive: true,

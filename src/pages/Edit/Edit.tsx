@@ -1,7 +1,7 @@
 import styles from "./Edit.module.scss";
 import { Formik, Field, Form } from "formik";
 import Header from "../../components/Header";
-import { INDUSTRIES } from "../../constants";
+import { INDUSTRIES, NO, YES } from "../../constants";
 import { useContextData } from "../../context/DataContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
@@ -42,7 +42,7 @@ const Edit = () => {
           company: customerData.company,
           about: customerData.about,
           industry: customerData.industry,
-          isActive: customerData.isActive ? "yes" : "no",
+          isActive: customerData.isActive ? YES : NO,
         }}
         onSubmit={(values) => {
           const updated = contextData.map((item) => {
@@ -52,7 +52,7 @@ const Edit = () => {
                   company: values.company,
                   about: values.about,
                   industry: values.industry,
-                  isActive: values.isActive === "yes" ? true : false,
+                  isActive: values.isActive === YES ? true : false,
                 }
               : item;
           });
@@ -99,7 +99,7 @@ const Edit = () => {
                 </td>
                 <td className="field">
                   <Field id="isActive" name="isActive" as="select">
-                    {generateOptions(["yes", "no"])}
+                    {generateOptions([YES, NO])}
                   </Field>
                 </td>
               </tr>

@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
 
   return (
     <div id="error-page">

@@ -7,6 +7,7 @@ import { MdArrowBack } from "react-icons/md";
 import { dateTimeFormatter } from "../../utils";
 import NoDataError from "../../components/NoDataError";
 import Loading from "../../components/Loading";
+import { NO, YES } from "../../constants";
 
 const View = () => {
   const { contextData } = useContextData();
@@ -61,7 +62,7 @@ const View = () => {
             <td>
               <label>Is active</label>
             </td>
-            <td>{customerData.isActive ? "Yes" : "No"}</td>
+            <td>{customerData.isActive ? YES : NO}</td>
           </tr>
         </tbody>
       </table>
