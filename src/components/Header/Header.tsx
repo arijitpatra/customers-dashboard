@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
+import BrandLogo from "../BrandLogo";
 
 const Header = () => (
   <Link to="/">
-    <img
-      width="100"
-      height="auto"
-      loading="lazy"
-      src="/logo.svg"
-      alt="brand-logo"
-    />
+    <BrandLogo />
   </Link>
 );
 

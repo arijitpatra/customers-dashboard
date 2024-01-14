@@ -13,8 +13,13 @@ const View = () => {
   const { customerId } = useParams();
   const customerData = contextData.filter((item) => item.id === customerId)[0];
 
-  if (customerData?.length === 0) {
-    return <Loading />;
+  if (customerData && Object.keys(customerData).length === 0) {
+    return (
+      <>
+        <Header />
+        <Loading />
+      </>
+    );
   }
 
   if (contextData.length === 0) {
