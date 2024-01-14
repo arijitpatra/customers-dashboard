@@ -63,7 +63,7 @@ const Create = () => {
                   <Field
                     id="company"
                     name="company"
-                    placeholder="Acme Co."
+                    placeholder="Company name"
                     required
                   />
                 </td>
@@ -73,7 +73,13 @@ const Create = () => {
                   <label htmlFor="about">About*</label>
                 </td>
                 <td className="field">
-                  <Field id="about" name="about" as="textarea" required />
+                  <Field
+                    id="about"
+                    name="about"
+                    as="textarea"
+                    placeholder="Say something about the company..."
+                    required
+                  />
                 </td>
               </tr>
               <tr>
