@@ -8,27 +8,34 @@ const View = lazy(() => import("./pages/View"));
 const Edit = lazy(() => import("./pages/Edit"));
 const Create = lazy(() => import("./pages/Create"));
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "view/:customerId",
-    element: <View />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "edit/:customerId",
-    element: <Edit />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "create",
-    element: <Create />,
-    errorElement: <ErrorPage />,
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "view/:customerId",
+      element: <View />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "edit/:customerId",
+      element: <Edit />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "create",
+      element: <Create />,
+      errorElement: <ErrorPage />,
+    },
+  ]
+  // needed for deployment
+  // ,
+  // {
+  //   basename: "/parloa-customers-dashboard",
+  // }
+);
 
 export default router;
