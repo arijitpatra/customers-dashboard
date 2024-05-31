@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: "/parloa-customers-dashboard/", // needed for deployment
+  // base: "/customers-dashboard/", // needed for deployment
   plugins: [react()],
 });

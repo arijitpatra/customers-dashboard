@@ -34,7 +34,7 @@ const router = createBrowserRouter(
   // needed for deployment
   // ,
   // {
-  //   basename: "/parloa-customers-dashboard",
+  //   basename: "/customers-dashboard",
   // }
 );
 
